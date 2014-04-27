@@ -30,3 +30,6 @@ class AllMoviesLoadingScenarioHarder extends Simulation {
     .inject(ramp(totalUsers users) over (delayInjection seconds)))
 }
 
+/*
+    mvn gatling:execute -Dgatling.simulationClass=org.k33g.moviebuddy.tests.AllMoviesLoadingScenarioHarder
+ */

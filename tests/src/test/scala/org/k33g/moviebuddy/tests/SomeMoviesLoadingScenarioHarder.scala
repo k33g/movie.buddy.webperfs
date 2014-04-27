@@ -11,16 +11,6 @@ class SomeMoviesLoadingScenarioHarder extends Simulation {
   //val server = System.getProperty("buddyserver", "http://localhost:3000")
   val server = System.getProperty("buddyserver", "http://192.168.128.142:3000");
 
-
-  //val title = System.getProperty("title", "Node-Cluster-EU")
-  //val server = System.getProperty("buddyserver", "http://movie-buddy-node-cluster-2.devoxxfr-web-perfs.eu.cloudbees.net")
-
-  //val title = System.getProperty("title", "Node-EU")
-  //val server = System.getProperty("buddyserver", "http://movie-buddy-node-2.devoxxfr-web-perfs.eu.cloudbees.net")
-
-  //val title = System.getProperty("title", "Play-Scala-EU")
-  //val server = System.getProperty("buddyserver", "http://movie-buddy-play-scala-2.devoxxfr-web-perfs.eu.cloudbees.net")
-
   val totalUsers = Integer.getInteger("gatling.users", 300).toInt
   val delayInjection = Integer.getInteger("gatling.delay", 100).toInt
   val loops = Integer.getInteger("gatling.loops", 100).toInt
@@ -42,5 +32,5 @@ class SomeMoviesLoadingScenarioHarder extends Simulation {
 }
 
 /*
-    mvn gatling:execute -Dgatling.simulationClass=org.k33g.moviebuddy.tests.SomeMoviesLoadingScenario
+    mvn gatling:execute -Dgatling.simulationClass=org.k33g.moviebuddy.tests.SomeMoviesLoadingScenarioHarder
  */
