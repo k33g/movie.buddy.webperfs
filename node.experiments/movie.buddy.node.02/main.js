@@ -41,9 +41,18 @@ app.get("/movies/search/actors/:actors/:limit", function(req, res) {
 });
 
 app.get("/movies/search/genre/:genre/:limit", function(req, res) {
+
+  /* 1ère optimisation */
+  var regex = new RegExp(req.params.genre.toLowerCase());
+  res.send(movies.filter(function(movie) {
+    return movie.Genre.toLowerCase().search(regex,"g") != -1;
+  }).slice(0,req.params.limit));
+
+  /*
   res.send(movies.filter(function(movie) {
     return movie.Genre.toLowerCase().search(new RegExp(req.params.genre.toLowerCase()),"g") != -1;
   }).slice(0,req.params.limit));
+  */
 });
 
 app.get("/users", function(req, res) {
