@@ -16,10 +16,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded());
 
-
+/* 1ère optimisation */
 app.get("/movies", function(req, res) {
   //res.send(movies);
-  res.sendfile("./db/movies.js", "utf8");
+  res.sendfile("./db/movies.json", "utf8");
 });
 
 app.get("/movies/:id", function(req, res) {

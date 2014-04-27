@@ -8,7 +8,8 @@ import bootstrap._
 
 class SomeMoviesLoadingScenario extends Simulation {
   val title = System.getProperty("title", "localhost")
-  val server = System.getProperty("buddyserver", "http://localhost:3000")
+  //val server = System.getProperty("buddyserver", "http://localhost:3000")
+  val server = System.getProperty("buddyserver", "http://192.168.128.142:3000");
 
 
   //val title = System.getProperty("title", "Node-Cluster-EU")
