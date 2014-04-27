@@ -42,11 +42,22 @@ app.get("/movies/search/actors/:actors/:limit", function(req, res) {
 
 app.get("/movies/search/genre/:genre/:limit", function(req, res) {
 
-  /* 1ère optimisation */
-  var regex = new RegExp(req.params.genre.toLowerCase());
+  /* 2ème optimisation */
+  /*
+  var regex = new RegExp(req.params.genre,"i");
   res.send(movies.filter(function(movie) {
-    return movie.Genre.toLowerCase().search(regex,"g") != -1;
+    return movie.Genre.search(regex,"i") != -1;
   }).slice(0,req.params.limit));
+  */
+
+
+  /* 1ère optimisation (pas de différence) */
+
+  var regex = new RegExp(req.params.genre.toLowerCase(),"g");
+  res.send(movies.filter(function(movie) {
+    return movie.Genre.toLowerCase().search(regex) != -1;
+  }).slice(0,req.params.limit));
+
 
   /*
   res.send(movies.filter(function(movie) {
