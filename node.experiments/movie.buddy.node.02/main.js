@@ -3,6 +3,11 @@
 var express = require('express');
 var fs = require("fs");
 
+var http = require('http');
+
+http.globalAgent.maxSockets = 5
+console.log("maxSockets", http.globalAgent.maxSockets)
+
 var movies = (JSON.parse(fs.readFileSync("./db/movies.json", "utf8")));
 var users = (JSON.parse(fs.readFileSync("./db/users.json", "utf8")));
 
@@ -42,22 +47,22 @@ app.get("/movies/search/actors/:actors/:limit", function(req, res) {
 
 app.get("/movies/search/genre/:genre/:limit", function(req, res) {
 
-  /* 2ème optimisation */
-  /*
+  /* 2ème optimisation (pas de différence)*/
+
   var regex = new RegExp(req.params.genre,"i");
   res.send(movies.filter(function(movie) {
-    return movie.Genre.search(regex,"i") != -1;
+    return movie.Genre.search(regex) != -1;
   }).slice(0,req.params.limit));
-  */
+
 
 
   /* 1ère optimisation (pas de différence) */
-
+  /*
   var regex = new RegExp(req.params.genre.toLowerCase(),"g");
   res.send(movies.filter(function(movie) {
     return movie.Genre.toLowerCase().search(regex) != -1;
   }).slice(0,req.params.limit));
-
+  */
 
   /*
   res.send(movies.filter(function(movie) {
