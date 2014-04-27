@@ -18,7 +18,8 @@ app.use(express.urlencoded());
 
 
 app.get("/movies", function(req, res) {
-  res.send(movies);
+  //res.send(movies);
+  res.sendfile("./db/movies.js", "utf8");
 });
 
 app.get("/movies/:id", function(req, res) {
