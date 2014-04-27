@@ -40,7 +40,6 @@ public class Main {
     String jsonUsersList = mapper.writeValueAsString(usersList);
 
 
-
     post(new Route("/rates") {
       @Override
       public Object handle(Request request, Response response) {

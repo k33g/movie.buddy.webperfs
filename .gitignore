@@ -1,3 +1,7 @@
 node_modules
 *.log
 .idea
+*.class
+tests/target/*
+spark.java.experiments/movie.buddy.spark.01/target/*
+spark.java.experiments/movie.buddy.spark.01/*.jar
